@@ -15,17 +15,17 @@ background_color="black"        #canvas box background color
 class snake():
 # creating a snake
     def __init__(self):
-        self.body_size = body_parts     #body parts value self.body_size la store panrom
-        self.coordinates = []   # empty list  ha erkum we are going to append
-        self.square=[]          # empty list  ha erkum we are going to append
+        self.body_size = body_parts     
+        self.coordinates = []   
+        self.square = []
 
         #using for loop we are going to append the coordinates value of x,y
         for i in range(0,body_parts):
-            self.coordinates.append([0,0])      #coordinates x,y value append panrom
+            self.coordinates.append([0,0])      
         #print(self.coordinates) #output is  [[0, 0], [0, 0], [0, 0]]
         for x,y in self.coordinates:
             squares=canvas.create_rectangle(x,y,x+space_size,y+space_size,fill=snake_color,tag="snake")
-            self.square.append(squares) #creating canvas rectangle in squares la athu append panrom self.square la
+            self.square.append(squares) 
 
 
 
@@ -37,7 +37,7 @@ class Food():
         y=random.randint(0, (Gamebox_height // space_size)-1) * space_size #when we multiply with space_size
                                                                         # It will convert into 'y' pixels
 
-        self.coordinates=[x,y] #x,y oda coordinates than list la vekrom
+        self.coordinates=[x,y] 
         canvas.create_oval(x, y, x + space_size , y + space_size , fill=food_color ,tag="food")
 
 
@@ -65,8 +65,7 @@ def next_turn(snake,food):
 
         score_label.config(text="Score : {}".format(score))
 
-        canvas.delete("food")#->enga potuerka food vanthu namba tag = food nu mention pani erkom
-        #delete panitu new food object create panrom
+        canvas.delete("food")
         food = Food()
     else:
         # delete last position of snake using del command
@@ -125,7 +124,7 @@ window.title("Snake Game")
 window.resizable(False,False)#we cannot resize our window
 
 score = 0 # default value for score
-direction = "right" # defaultly it will move left side
+direction = "right" # defaultly it will move right side
 
 # creation score_label to display score
 score_label = Label(window,text="score : {}".format(score),font=("Arial black",20),fg="red",
